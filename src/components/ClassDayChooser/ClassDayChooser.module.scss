@@ -1,0 +1,78 @@
+@import "../../constants/functions";
+.calendar, .calendar * {
+  @include noUserSelect;
+}
+.calendar {
+  display: block;
+  @include borderRadius(20px);
+  background-color: #FFFFFF;
+  overflow: hidden;
+  @include boxShadow(0 0 5px rgba(0,0,0,0.5));
+  @include transition(all 0.1s);
+}
+.calendar:hover {
+  @include boxShadow(0 0 10px rgba(0,0,0,0.5));
+}
+.calendarHeader {
+  background-color: #FF7200;
+  height: 50px;
+  @include row;
+}
+.calendarHeaderTitle {
+  flex: 1;
+  @include row;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 20px;
+}
+.calendarBody {
+  //width: 100%;
+}
+.calendarBody td {
+  text-align: center;
+  width: 40px;
+}
+.calendarBody tbody tr td {
+  height: 40px !important;
+  @include borderRadius(50%);
+}
+.calendarBody thead tr {
+  border-bottom: 3px solid #FF7200;
+}
+.calendarBody tr:first-child td {
+  margin-bottom: 5px;
+  height: 30px;
+}
+.available {
+  @include borderRadius(50%);
+  //background-color: #F2D3A3;
+  cursor: pointer;
+
+}
+.available span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include borderRadius(50%);
+  background-color: white;
+  border: 2px solid #FC7F0C;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  margin: 5px;
+  @include transition(background-color 0.2s);
+}
+.selected span {
+  background-color: #FC7F0C;
+  border: 2px solid #FC7F0C;
+  color: #FFFFFF;
+}
+.selected {
+  //background-color: #967737;
+  color: #FFFFFF;
+}
+@media (max-width: 700px) {
+  .wrapper {
+    @include col;
+  }
+}

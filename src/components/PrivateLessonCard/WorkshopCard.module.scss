@@ -1,0 +1,58 @@
+@import "../../constants/functions";
+.WorkshopCard {
+  width: 277px;
+  @include borderRadius(20px);
+  overflow: hidden;
+  border: 5px solid #FFFFFF;
+  @include bgSize(cover);
+  background-position: center;
+  background-color: #EEEEEE;
+  position: relative;
+  margin: 5px;
+  @include col;
+}
+.responsive {}
+.img {
+  display: block;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+.button{
+  cursor:auto;
+  text-align:left;
+  justify-content:flex-start;
+  padding:15px;
+}
+.title {
+  color: #dd4949;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+}
+.by {
+  margin: 5px 0 10px 0;
+  color: #444444;
+  font-weight: bold;
+  text-align: left;
+}
+.priceAndSessions {
+  @include row;
+  margin: 2px 0;
+}
+.rowItem {
+  background-color: var(--indexColor);
+  flex: 1;
+  text-align: center;
+  margin: 2px;
+  color: #FFFFFF;
+  text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+.rowItem:first-child {
+  margin-left: 0;
+  @include borderRadius(5px 0 0 5px);
+}
+.rowItem:last-child {
+  margin-right: 0;
+  @include borderRadius(0 5px 5px 0);
+}

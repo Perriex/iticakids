@@ -1,0 +1,43 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include col;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.3);
+  width: 860px;
+  max-width: calc(100% - 10px);
+  padding: 10px 0;
+  @include borderRadius(10px);
+}
+
+.cards {
+  max-width: 100%;
+  //@include row;
+  //flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
+  @include borderRadius(10px);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-align: right;
+  direction: rtl;
+  font-size: 25px;
+}
+.body {
+  color: #000000;
+  text-align: justify;
+  direction: rtl;
+  padding: 10px;
+}
+.Arrow {
+  color: #FFFFFF;
+  font-size: 40px;
+  padding: 5px;
+  cursor: pointer;
+}

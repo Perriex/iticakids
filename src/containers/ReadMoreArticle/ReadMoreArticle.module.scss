@@ -1,0 +1,45 @@
+@import "../../constants/functions";
+
+.wrapper {
+  width: 900px;
+  max-width: 100%;
+  direction: ltr;
+  text-align: left;
+  overflow: hidden;
+  height: 350px;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+.imageWrapper {
+  display: inline-block;
+  float: left;
+  padding-right: 10px;
+}
+.textWrapper {
+  //float: left;
+  padding: 5px;
+  text-align: justify;
+}
+.shadow {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-image: linear-gradient(to bottom, #FF720000, #FF7200FF);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #FFFFFF;
+}
+@media (max-width: 600px) {
+  .imageWrapper {
+    display: block;
+    float: none;
+    margin: auto;
+    @include row;
+    align-items: center;
+    padding-left: 0;
+    justify-content: center;
+  }
+}

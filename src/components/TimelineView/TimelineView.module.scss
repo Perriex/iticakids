@@ -1,0 +1,46 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include row;
+  padding: 0 5px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 900px;
+  max-width: 100%;
+  @include noUserSelect;
+  position: relative;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  @include borderRadius(50%);
+  background-color: #FFFFFF;
+  color: var(--indexColor);
+  cursor: pointer;
+  margin-bottom: 10px;
+  z-index: 200;
+}
+.active {
+  background-color: var(--indexColor);
+  color: #FFFFFF;
+  cursor: auto;
+}
+.tabWrapper {
+  @include col;
+  align-items: center;
+  justify-content: center;
+}
+.line {
+  display: block;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  top: 19px;
+  z-index: 100;
+}

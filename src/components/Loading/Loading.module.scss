@@ -1,0 +1,22 @@
+@import "../../constants/functions";
+@keyframes loading {
+  from {
+    @include transform(rotateZ(0deg));
+  }
+  to {
+    @include transform(rotateZ(359deg));
+  }
+}
+.loadingContainer {
+  @include row;
+  align-items: center;
+  justify-content: center;
+}
+.loading {
+  border: 5px solid red;
+  width: 30px;
+  height: 30px;
+  @include borderRadius(50%);
+  border-top: 5px solid transparent;
+  animation: loading 0.5s linear 2s infinite;
+}

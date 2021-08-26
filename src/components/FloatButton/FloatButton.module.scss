@@ -1,0 +1,19 @@
+@import "../../constants/functions";
+
+.button {
+  background-color: #967737;
+  line-height: 30px;
+  height: 40px;
+  @include borderRadius(10px 10px 0 0);
+  @include row;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-align: right;
+  direction: rtl;
+  cursor: pointer;
+  @include noUserSelect;
+  position: fixed;
+  right: 50px;
+  bottom: 0;
+}

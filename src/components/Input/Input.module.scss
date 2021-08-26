@@ -1,0 +1,14 @@
+@import "../../constants/functions";
+
+.Input {
+  display: block;
+  border: 2px solid #FC7F0C;
+  background-color: #FFFFFF;
+  @include borderRadius(5px);
+  height: 40px;
+  width: 100%;
+  padding: 0 5px;
+}
+.Input:focus {
+  background: #F2D3A3;
+}

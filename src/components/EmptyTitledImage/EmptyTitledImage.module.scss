@@ -1,0 +1,23 @@
+@import "../../constants/functions";
+.TitledImage {
+  width: 217px;
+  height: 0px;
+  @include borderRadius(20px);
+  overflow: hidden;
+  border: 0px solid #FFFFFF;
+  @include bgSize(cover);
+  background-position: center;
+  background-color: #EEEEEE;
+  position: relative;
+  //margin: 5px;
+}
+@media (max-width: 500px) {
+  .responsive {
+    width: 150px;
+  }
+}
+@media (max-width: 300px) {
+  .responsive {
+    width: 200px;
+  }
+}

@@ -1,0 +1,139 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include row;
+  display: block;
+  width: 900px;
+  text-align: right;
+  max-width: 100%;
+  //z-index: 10000000000000000000000000 !important;
+  z-index: 3 !important;
+}
+.small {
+  display: none;
+}
+.logo {
+  width: 160px;
+  margin: 10px;
+  display: none;
+}
+
+.navMenu {
+  //direction: rtl;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-bottom: 0;
+
+}
+.navMenu li {
+  display: inline-block;
+}
+.navMenu li .navLink {
+  color: var(--indexColor);
+  text-decoration: none;
+  padding: 5px;
+}
+.navMenu li:not(:first-child) {
+  margin-left: 15px;
+}
+.active {
+  color: #FFFFFF !important;
+  text-decoration: none;
+  background-color: var(--indexColor);
+  padding: 5px 10px;
+}
+.ham {
+  display: none;
+}
+.backDrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+.backDrop.visible {
+  display: block;
+}
+.closeButton {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .small {
+    display: block;
+  }
+  .close {
+    @include transform(translateX(-300px));
+  }
+  .ham {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    border: 1px solid red !important;
+  }
+  .logo {
+    display: block;
+  }
+  .closeButton {
+    display: block;
+  }
+  .wrapper {
+    //@include transform(translateX(300px));
+    @include transition(all .3s);
+    align-items: center;
+    position: fixed;
+    display: block;
+    text-align: right;
+    max-width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 250px;
+    @include col;
+    z-index: 10000000000000000000;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .navMenu {
+    float: none;
+    display: block;
+    width: 100%;
+    border-top: 3px solid #FF7200;
+    margin-top: 20px;
+    @include boxShadow(inset 0 5px 5px rgba(0,0,0,0.1));
+  }
+  .navMenu li {
+    line-height: 40px;
+    margin: 5px !important;
+    padding: 5px;
+    display: block;
+    text-align: left;
+  }
+  .active {
+    color: #FFFFFF !important;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #FF7200;
+    display: block;
+    padding-left: 10px;
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  .lg {
+    display: none !important;
+  }
+}

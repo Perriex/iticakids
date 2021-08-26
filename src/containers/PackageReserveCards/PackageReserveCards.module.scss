@@ -1,0 +1,14 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include row;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+}
+@media (max-width: 880px) {
+  .wrapper {
+    max-width: 650px;
+  }
+}

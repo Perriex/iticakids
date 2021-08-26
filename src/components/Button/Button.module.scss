@@ -1,0 +1,43 @@
+@import "../../constants/functions";
+
+.button {
+  position: relative;
+  background-color: #FC7F0C;
+  line-height: 30px;
+  height: 30px;
+  @include borderRadius(5px);
+  @include row;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-align: right;
+  direction: ltr;
+  cursor: pointer;
+  @include noUserSelect;
+}
+.button:hover {
+  background-color: #FF9839;
+}
+.disabled {
+  background-color: #AAAAAA !important;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+.isLoading {
+  padding-left: 40px;
+}
+.loading {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: -200px !important;
+  @include transform(translateY(-5px));
+  position: absolute;
+  left: 0;
+  padding-left: 10px;
+}
+.hoverBgColor:hover {
+  background-color: var(--hoverBgColor);
+}

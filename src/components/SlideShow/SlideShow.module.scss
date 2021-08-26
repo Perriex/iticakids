@@ -1,0 +1,23 @@
+@import "../../constants/functions";
+.SlideShowContainer {
+  display: inline-block;
+  //height: 500px;
+  width: 900px;
+  max-width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+.wrapper {
+  width: 100%;
+  @include col;
+  align-items: center;
+  justify-content: center;
+  background-color: #00ccff;
+  padding: 60px 0;
+}
+@media (max-width: 700px) {
+  .SlideShowContainer {
+    width: calc(100% - 20px);
+    border-radius: 10px;
+  }
+}

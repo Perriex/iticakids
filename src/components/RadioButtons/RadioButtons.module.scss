@@ -1,0 +1,30 @@
+@import "../../constants/functions";
+
+.RadioButtons {
+  @include row;
+  flex-wrap: wrap;
+}
+
+.RadioButton {
+  @include transition(background-color 0.3s);
+  background-color: white;
+  border: 2px solid #FC7F0C;
+  line-height: 30px;
+  min-height: 30px;
+  @include borderRadius(5px);
+  @include row;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  text-align: right;
+  direction: rtl;
+  cursor: pointer;
+  @include noUserSelect;
+  padding: 0 5px;
+  margin: 5px 0 0 5px;
+}
+
+.RadioButton.active {
+  background-color: #FC7F0C;
+  color: #FFFFFF;
+}

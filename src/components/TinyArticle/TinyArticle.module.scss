@@ -1,0 +1,30 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include borderRadius(10px);
+  padding: 5px;
+  width: 280px;
+  margin: 5px;
+  background-color: #FFFFFF;
+}
+.wrapper {
+  font-size: 15px;
+}
+.title {
+  background-color: #967737;
+  line-height: 30px;
+  height: 30px;
+  @include borderRadius(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-align: right;
+  direction: rtl;
+}
+.body {
+  color: #000000;
+  text-align: justify;
+  direction: rtl;
+  padding: 10px;
+}

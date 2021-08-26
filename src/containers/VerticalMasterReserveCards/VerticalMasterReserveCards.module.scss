@@ -1,0 +1,11 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include col;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  width: 900px;
+  align-items: center;
+}

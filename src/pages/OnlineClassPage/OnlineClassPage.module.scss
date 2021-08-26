@@ -1,0 +1,16 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include col;
+  align-items: center;
+  font-size: 15px;
+  max-width: 100%;
+}
+.headsetIcon {
+  height: 20px;
+  margin-left: 5px;
+}
+.title {
+  font-size: 25px;
+  color: #FFFFFF;
+}

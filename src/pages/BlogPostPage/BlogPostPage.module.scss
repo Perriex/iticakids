@@ -1,0 +1,90 @@
+@import "../../constants/functions";
+
+.wrapper {
+    @include col;
+    align-items: center;
+    font-size: 15px;
+}
+
+.headsetIcon {
+    height: 20px;
+    margin-left: 5px;
+}
+
+.title {
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.blogContainer {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+}
+
+.toolbar {
+    flex: 1;
+    padding-right: 5px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.body {
+    flex: 2;
+    padding-left: 5px;
+}
+
+.toolbarPaper {
+    padding: 10px;
+    position: sticky;
+    top: 10px;
+    left: 20px;
+}
+
+.bodyPaper {
+    padding: 10px;
+}
+
+.categories {
+    direction: rtl;
+    text-align: right;
+}
+
+.categoriesList {
+    list-style-type: none;
+    line-height: 25px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+shareLinks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.shareLink {
+    margin-left: 10px;
+}
+
+.shareLink > img {
+    @include transition(all 0.3s);
+    @include transform(scale(1));
+}
+
+.shareLink:hover > img {
+    @include transform(scale(1.1));
+}
+
+@media (max-width: 700px) {
+    .blogContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .body, .toolbar {
+        padding: 5px 5px 0 5px;
+    }
+}

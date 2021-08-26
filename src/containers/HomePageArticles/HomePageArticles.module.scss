@@ -1,0 +1,32 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include row;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.title {
+  background-color: #967737;
+  line-height: 30px;
+  height: 30px;
+  @include borderRadius(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-align: right;
+  direction: rtl;
+}
+.body {
+  color: #000000;
+  text-align: justify;
+  direction: rtl;
+  padding: 10px;
+}
+@media (max-width: 880px) {
+  .wrapper {
+    max-width: 350px;
+  }
+}

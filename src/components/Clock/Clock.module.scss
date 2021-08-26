@@ -1,0 +1,54 @@
+@import "../../constants/functions";
+
+.Clock {
+  @include row;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  position: relative;
+  background-color: #FFFFFF;
+  @include borderRadius(50%);
+  margin: 5px;
+  @include noUserSelect();
+  cursor: pointer;
+  //border: 3px dashed red;
+}
+
+@keyframes fillup {
+  from { stroke-dasharray: 0 100; }
+}
+
+.svg {
+  width: 100px;
+  height: 100px;
+  transform: rotate(-90deg);
+  background: #fff;
+  border-radius: 50%;
+}
+
+.circle {
+  fill: #eee;
+  stroke: #8bc34a;
+  stroke-width: 5;
+  stroke-dasharray: 0 100; /* for 75% */
+  animation: fillup 1s ease-out forwards;
+}
+.display {
+  position: absolute;
+  direction: rtl;
+  @include row;
+  align-items: center;
+  justify-content: center;
+}
+.radio {
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  @include borderRadius (50%);
+  bottom: 20px;
+  @include row;
+  align-items: center;
+  justify-content: center;
+}

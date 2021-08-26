@@ -1,0 +1,53 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include col;
+  align-items: center;
+  font-size: 15px;
+}
+.wrapper a {
+  text-decoration: none !important;
+  color: #444444;
+}
+.headsetIcon {
+  height: 20px;
+  margin-left: 5px;
+}
+.title {
+  font-size: 25px;
+  color: #FFFFFF;
+}
+.body {
+  width: 900px;
+  max-width: calc(100% - 20px);
+
+}
+.nameInput {
+  margin-bottom: 0;
+}
+.contactDetail {
+  direction: rtl;
+  text-align: right;
+  @include row;
+  align-items: center;
+  height: 50px;
+}
+.detail {
+  flex: 1;
+  font-size: 20px;
+  padding-right: 10px;
+}
+.contactDetail>img {
+  width: 40px;
+}
+.details {
+
+}
+@media (max-width: 991px) {
+  .nameInput {
+    margin-bottom: 10px;
+  }
+  .details {
+    margin-top: 50px;
+  }
+}

@@ -1,0 +1,12 @@
+@import "../../constants/functions";
+
+.ImageCard {
+  background-color: #FFFFFF;
+  @include bgSize(contain);
+  background-position: center;
+  @include borderRadius(10px);
+  width: 150px;
+  height: 150px !important;
+  margin: 5px;
+  background-repeat: no-repeat;
+}

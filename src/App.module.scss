@@ -1,0 +1,15 @@
+@import "constants/functions";
+.App {
+  font-family: IRANYekan;
+  font-size: 20px;
+  min-height: 100%;
+}
+
+.App, .App * {
+  outline: none;
+}
+
+.headsetIcon {
+  height: 20px;
+  margin-left: 5px;
+}

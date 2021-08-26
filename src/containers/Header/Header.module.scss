@@ -1,0 +1,33 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include col;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 900px;
+  max-width: 100%;
+}
+.logo {
+  width: 250px;
+}
+.ham {
+  display: none;
+  position: absolute;
+  left: 10px;
+  @include transform(scaleX(-1));
+  top: 10px;
+  width: 40px;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .ham {
+    display: block;
+  }
+  .wrapper {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+}

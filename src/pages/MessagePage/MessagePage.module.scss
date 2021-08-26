@@ -1,0 +1,31 @@
+@import "../../constants/functions";
+
+.wrapper {
+  @include col;
+  align-items: center;
+  font-size: 15px;
+}
+.headsetIcon {
+  height: 20px;
+  margin-left: 5px;
+}
+.title {
+  font-size: 25px;
+  color: #FFFFFF;
+}
+.messageWrapper {
+  background-color: #FFFFFF;
+  width: 900px;
+  max-width: calc(100% - 20px);
+  min-height: 300px;
+  @include borderRadius(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.messageWrapper h2 {
+  font-weight: bold;
+  text-align: right;
+  direction: rtl;
+}

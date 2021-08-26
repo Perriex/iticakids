@@ -1,0 +1,161 @@
+@import "../../constants/functions";
+
+.wrapper {
+    @include col;
+    align-items: center;
+    font-size: 15px;
+}
+
+
+.headsetIcon {
+    height: 20px;
+    margin-left: 5px;
+}
+
+
+.title {
+    font-size: 25px;
+    color: #000000;
+}
+
+.workshopWrapper {
+    width: 900px;
+    max-width: 100%;
+    @include row;
+}
+
+.registerCard {
+    width: 320px;
+    @include borderRadius(10px);
+    overflow: hidden;
+    @include col;
+}
+
+.priceAndSessions {
+    @include row;
+    margin: 2px 0;
+}
+
+.rowItem {
+    background-color: #FFFFFF;
+    flex: 1;
+    text-align: center;
+    margin: 2px;
+    @include borderRadius(10px);
+}
+
+.rowItem:first-child {
+    margin-left: 0;
+}
+
+.rowItem:last-child {
+    margin-right: 0;
+}
+
+.workshopDetails {
+    padding: 20px;
+    margin: 0 0 0 10px;
+    background-color: #FFFFFF;
+    @include borderRadius(20px);
+    flex: 1;
+}
+
+.propVal {
+    @include row;
+}
+
+.prop {
+
+}
+
+.val {
+    font-weight: bold;
+}
+
+.table {
+    @include borderRadius(10px);
+    overflow: hidden;
+    margin-bottom: 3px;
+    width: 100%;
+}
+
+.table td {
+    padding: 5px 20px;
+}
+
+.table tr:nth-child(even) td {
+    background: #FFFFFF;
+}
+
+.table tr:nth-child(odd) td {
+    background: #EEEEEE;
+}
+
+.row {
+    @include row;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.textInput {
+    border: 2px solid #FC7F0C;
+    @include borderRadius(10px);
+    background-color: #ffd891;
+    width: 100px;
+    padding: 0 5px;
+    direction: ltr;
+}
+
+.whiteCard {
+    background-color: #FFFFFF;
+    margin-bottom: 3px;
+    @include borderRadius(10px);
+    min-height: 40px;
+    @include col;
+}
+
+.center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.dropdown {
+    border: 2px solid #FC7F0C;
+    @include borderRadius(10px);
+    background-color: #ffd891;
+    width: 170px;
+}
+
+@media (max-width: 700px) {
+    .workshopWrapper {
+        @include col;
+        align-items: center;
+        width: 100%;
+    }
+    .workshopDetails {
+        width: calc(100% - 20px);
+        padding: 10px;
+        background-color: #FFFFFF;
+        margin: 10px;
+        @include borderRadius(20px);
+        flex: 1;
+    }
+}
+
+
+.dialog{
+    height:200px;
+    align-items: center;
+    justify-content:space-around;
+    border-radius: 10px;
+    & h2{
+        font-weight: bolder;
+    }
+    & button {
+        width:80
+    }
+}
