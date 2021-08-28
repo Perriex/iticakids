@@ -191,7 +191,7 @@ const UserList = (props) => {
   }
 
   const setUserPage = (page) => {
-    filterUsers(filterData.search , filterData.column , filterData.dir, page , filterData.showStaff , filterData.staff_package);
+    filterUsers(filterData.search , filterData.column , filterData.dir, page , showStaff , filterData.staff_package);
   }
   useEffect(()=>{
     filterUsers(filterData.search , filterData.column , filterData.dir, 0 , showStaff , filterData.staff_package);
