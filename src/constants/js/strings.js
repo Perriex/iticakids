@@ -3,7 +3,7 @@ import React from "react";
 export const strings = {
     'Home': 'Home',
     'About': 'About',
-    'Online Classes': 'Online Classes',
+    'Online Classes': 'Private Classes',
     'Workshops': 'Workshops',
     'Blog': 'Blog',
     'Language': 'Language',
@@ -124,7 +124,7 @@ export const strings = {
 
 
     variables: {
-        footerAboutText: 'Rhythmitica is the very first world online music academy established in 2012 based in Toronto, Canada. The academic tutoring of traditional world music to interested students across the globe and promoting world music are the main goals of Rhythmitica.',
+        footerAboutText: 'Rhythmitica is the very first world online music academy established in 2015 based in Toronto, Canada. The academic tutoring of traditional world music to interested students across the globe and promoting world music are the main goals of Rhythmitica.',
         home: 'Toronto, ON - CANADA',
         phone: '+1-855-531-0127',
         email: 'kids@rhythmitica.com',
