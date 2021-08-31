@@ -57,14 +57,14 @@ const FloatWhatsapp = () => {
                     <div className={classes.closeBtn} onClick={() => setOpened(false)}>
                         <CloseIcon />
                     </div>
-                    <img src={whatsappPng} />
+                    <img src="/static/media/kids-logo.a138f7d9.png" />
 
                 </div>
 
                 <div className={classes.body}>
                     <div className={classes.bubbleChat}>
-                        <p>hello  👋</p>
-                        <p>how can i help you?</p>
+                        <p>Hello  👋</p>
+                        <p>How can we help you?</p>
                     </div>
                     <div style={{opacity:opened?1:0}} className={clsx(classes.floatBtn, opened && classes.openedFloat)} onClick={() => handleClickFloat()}>
                         <WhatsAppIcon />

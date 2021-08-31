@@ -16,7 +16,7 @@ const Loading = (props) => {
   const classes = useStyles();
   return (show ? (
       <div className={classes.root} style={{minHeight : height ? height : "250px"}} >
-        {/* <Ellipsis color="#967737" /> */}
+        {/* <Ellipsis color="#f76500" /> */}
       </div>
     ) : null
   );

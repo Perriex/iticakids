@@ -71,7 +71,7 @@ export default makeStyles(theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: '#24d366',
+        backgroundColor: '#ffffff',
         '& img': {
             height: 40
         }
