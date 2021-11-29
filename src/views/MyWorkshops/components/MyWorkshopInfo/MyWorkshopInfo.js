@@ -131,7 +131,7 @@ const MyWorkshopInfo = (props) => {
           // if(store.get("user").timezone.toLowerCase().includes("tehran")){
           //   window.location = axios.defaults.baseURL + "/pay/booking/zarrin?reserve_token="+token;
           // }else{
-            window.location = axios.defaults.baseURL + "/pay/booking/paypal?reserve_token="+token;
+            window.location = axios.defaults.baseURL + "/pay/booking/paypal?reserve_token="+token+'&site_id=7';
           // }
         }
         setLoading(false);

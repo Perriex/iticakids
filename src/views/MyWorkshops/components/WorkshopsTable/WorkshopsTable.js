@@ -154,13 +154,16 @@ const WorkshopsTable = props => {
   const deleteReserve = () => {
     setLoadingState(true);
     let data = {
-      user_id: user_id
+      user_id: user_id || current_reserve.user_id,
+      workshop: true
     }
-    axios.post(`api/admin/users/packages/${current_reserve.id}/delete`, data).then(res => {
-      window.location.reload(false);
+    let url
+    url = isMyPackages ? `api/user/myPackages/${current_reserve.id}/delete` : `api/admin/users/packages/${current_reserve.id}/delete`
+    axios.post(url, data).then(res => {
+      // window.location.reload(false);
       // setLoadingState(false);
     }).catch(err => {
-      window.location.reload(false);
+      // window.location.reload(false);
       // setLoadingState(false);
     });
   }
@@ -245,17 +248,32 @@ const WorkshopsTable = props => {
                             </Button>
                           ) : getPayBtn(mPakcage)
                           }
-                          {isMyPackages ? null : (
-                            <Button
-                              variant="contained"
-                              color="secondary"
-                              className={classes.button}
-                              startIcon={<DeleteIcon />}
-                              onClick={() => { setDelete(mPakcage) }}
-                            >
-                              {Lang.my_packages.list.delete}
-                            </Button>
-                          )}
+                          {(!isMyPackages) ?
+                            (
+                              <Button
+                                variant="contained"
+                                color="secondary"
+                                className={classes.button}
+                                startIcon={<DeleteIcon />}
+                                onClick={() => { setDelete(mPakcage) }}
+                              >
+                                {Lang.my_packages.list.delete}
+                              </Button>
+                            )
+                            :
+                            mPakcage.paid == 1 ? null
+                              :
+                              (
+                                <Button
+                                  variant="contained"
+                                  color="secondary"
+                                  className={classes.button}
+                                  startIcon={<DeleteIcon />}
+                                  onClick={() => { setDelete(mPakcage) }}
+                                >
+                                  {Lang.my_packages.list.delete}
+                                </Button>
+                              )}
                         </TableCell>
                       </TableRow>
                     ))}

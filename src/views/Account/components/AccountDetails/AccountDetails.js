@@ -222,7 +222,10 @@ const AccountDetails = props => {
             >
               <DatePicker 
                 label={Lang.profile.form.birth_date}
-                onChange={handleChange}
+                onChange={(e)=>{
+                  // console.log(e)
+                  handleChange(e)
+                }}
                 name="birth_date"
                 value={user_info.birth_date ? user_info.birth_date : ""}
               />

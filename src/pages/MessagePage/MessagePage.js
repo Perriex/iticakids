@@ -21,12 +21,12 @@ const MessagePage = props => {
         setMessage(query.get('msgEn') || query.get('message'));
         setType(query.get('type'));
         console.log(props.match);
-        if(query.get('variant')=='workshop'){
-            window.location.replace('/dashboard/myworkshops')
-        }
-        if(query.get('variant')=='booking'){
-            window.location.replace('dashboard/mypackages')
-        }
+        // if(query.get('variant')=='workshop'){
+        //     window.location.replace('/dashboard/myworkshops')
+        // }
+        // if(query.get('variant')=='booking'){
+        //     window.location.replace('dashboard/mypackages')
+        // }
     }, []);
 
 

@@ -377,6 +377,7 @@ const Topbar = props => {
                     >
                       <ListItemText 
                         primary={value.action} 
+                        secondary={"at " + moment(value.created_at).format("YYYY-MM-DD HH:mm:ss")}
                         />
                     </ListItem>
                   );

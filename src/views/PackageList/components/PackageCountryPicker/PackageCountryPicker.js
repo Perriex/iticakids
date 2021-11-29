@@ -90,7 +90,8 @@ const PackageCountryPicker = props => {
     const handleChange = (event) => {
         let data = [];
         if(event.target.value){
-            data = [countries.find(k => k.id == event.target.value)];
+            console.log('vcccc',countries)
+            data = [countries.data.find(k => k.id == event.target.value)];
         }
         // for (let i = 0; i < event.target.value.length; i++) {
         //     const temp = event.target.value[i];
@@ -102,6 +103,7 @@ const PackageCountryPicker = props => {
             onSelected(data);
         }
     };
+    console.log('countriessss',countries)
     return (
         <div>
             <FormControl variant="outlined" className={classes.formControl}>
@@ -115,7 +117,7 @@ const PackageCountryPicker = props => {
                 }}
                 >
                     <MenuItem value={null}>None</MenuItem>
-                {countries.map((country) => {
+                {countries?.data?.map((country) => {
                     return (
                         <MenuItem key={country.id} value={country.id}>
                         {country.name}

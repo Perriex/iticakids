@@ -130,7 +130,7 @@ const WorkshopPage = props => {
                 body: d.body,
                 time: d.start_at.split(' ')[1],
                 date: d.start_at.split(' ')[0],
-                level: d.level,
+                level: JSON.parse(d.json).level,
                 registerUrl: d.register_url,
                 slug: d.slug
             })
@@ -269,10 +269,7 @@ const WorkshopPage = props => {
                             <div dangerouslySetInnerHTML={{ __html: displayData?.body }} />
                             <br />
                             <p>
-                                After registration, you will be sent an email and a link to enter the webinar session
-                                and
-                                you
-                                can enter the webinar during class.
+                            After registration, you will receive an email providing the information to join your class. In case you did not get the email after the payment, please contact us at kids@rhythmitica.com.
                             </p>
                         </div>
                     }

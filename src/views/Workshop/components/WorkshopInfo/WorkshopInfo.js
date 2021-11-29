@@ -73,11 +73,13 @@ const WorkshopInfo = props => {
     const [image, setImage] = React.useState("");
     const [staffPicker, setStaffPicker] = useState(false);
     const [staff, setStaff] = useState(false);
+    const [desc, setDesc] = useState("");
+    const [body, setBody] = useState("");
     const [sessions, setSessions] = useState([]);
     const [newSession, setNewSession] = useState("");
     const [startInputValue, setStartInputValue] = useState(workshop.start_at ? new moment(workshop.start_at).format("YYYY-MM-DD HH:mm") : new moment().format("YYYY-MM-DD HH:mm"));
     const [endInputValue, setEndInputValue] = useState(workshop.expire_at ? new moment(workshop.expire_at).format("YYYY-MM-DD HH:mm") : new moment().format("YYYY-MM-DD HH:mm"));
- 
+
 
 
     React.useEffect(() => {
@@ -99,6 +101,8 @@ const WorkshopInfo = props => {
                 data.json = {};
             }
             setWorkshop(data);
+            setDesc(data.desc);
+            setBody(data.body);
             setStartInputValue(data.start_at)
             setEndInputValue(data.expire_at)
             if (res.data.banner) {
@@ -181,7 +185,7 @@ const WorkshopInfo = props => {
         data.append("start_at", workshop.start_at);
         data.append("expire_at", workshop.expire_at);
         data.append("price", workshop.price);
-        data.append("is_group_class", (workshop.is_group_class==true ||workshop.is_group_class==1) ? "1" : "0");
+        data.append("is_group_class", (workshop.is_group_class == true || workshop.is_group_class == 1) ? "1" : "0");
         // data.append("ir_price", workshop.ir_price);
         data.append("ir_price", '0');
         if (workshop.type) {
@@ -193,7 +197,7 @@ const WorkshopInfo = props => {
         data.append("staff_commission", workshop.staff_commission);
         data.append("link", workshop.workshop_link);
         // data.append("staff_id" , staff.staff.id);
-        data.append("staff_id", staff.staffId);
+        data.append("staff_id", staff.staffId || staff.id);
         data.append("banner", workshop.banner);
         data.append("json", JSON.stringify(workshop.json));
         data.append("sessions", sessions.length);
@@ -208,7 +212,14 @@ const WorkshopInfo = props => {
         }).catch(err => {
             setLoadingState(false);
             if (err.response.status == 422) {
-                Toast(Lang.common.input_error, "danger");
+                // console.log('err.response.data.errors',err.response.data.errors['title'][0])
+                // Live Online Music Lessons for Kids! Sundays
+                Object.keys(err.response.data.errors).map(function(key, index) {
+                    // myObject[key] *= 2;
+                    err.response.data.errors[key].map((err)=>{
+                        Toast(err, "danger");
+                    })
+                  });
             } else {
                 Toast(Lang.common.connection_error, "danger");
             }
@@ -223,7 +234,7 @@ const WorkshopInfo = props => {
         data.append("capacity", workshop.capacity);
         data.append("start_at", workshop.start_at);
         data.append("expire_at", workshop.expire_at);
-        data.append("is_group_class", (workshop.is_group_class==true ||workshop.is_group_class==1)  ? "1" : "0");
+        data.append("is_group_class", (workshop.is_group_class == true || workshop.is_group_class == 1) ? "1" : "0");
         data.append("price", workshop.price);
         // data.append("ir_price", workshop.ir_price);
         data.append("ir_price", '0');
@@ -525,11 +536,17 @@ const WorkshopInfo = props => {
                                         <Typography variant="h5" component="h5">
                                             {Lang.workshop.form.desc}
                                         </Typography>
-                                        <Editor model={workshop.desc} onModelChange={(e) => { setWorkshopData("desc", e) }} height={200} />
+                                        <Editor
+                                            apiKey="f1of5cynghcbae8ubznimgwksqvn4azrbnaf2x3fq9ilped8"
+
+                                            model={desc} onModelChange={(e) => { setWorkshopData("desc", e) }} height={200} />
                                         <Typography variant="h5" component="h5" className={classes.marginTop}>
                                             {Lang.workshop.form.body}
                                         </Typography>
-                                        <Editor model={workshop.body} onModelChange={(e) => { setWorkshopData("body", e) }} />
+                                        <Editor
+                                            apiKey="f1of5cynghcbae8ubznimgwksqvn4azrbnaf2x3fq9ilped8"
+
+                                            model={body} onModelChange={(e) => { setWorkshopData("body", e) }} />
                                         <TextField
                                             fullWidth
                                             label="keywords"
@@ -546,6 +563,15 @@ const WorkshopInfo = props => {
                                             variant="outlined"
                                             value={workshop.json.seo}
                                             onChange={(e) => setWorkshopData("seo", e.target.value, true)}
+                                        />
+                                           <TextField
+                                            fullWidth
+                                            className={classes.marginTop}
+                                            label="level"
+                                            multiline
+                                            variant="outlined"
+                                            value={workshop.json.level}
+                                            onChange={(e) => setWorkshopData("level", e.target.value, true)}
                                         />
                                         <FormControlLabel
                                             control={<Checkbox checked={workshop.is_group_class == 0 ? false : true} onChange={(e) => setWorkshopData("is_group_class", e.target.checked)} />}

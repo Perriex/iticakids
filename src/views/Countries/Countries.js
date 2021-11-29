@@ -147,7 +147,7 @@ const Countries = () => {
 
     setFilterData(data);
 
-    axios.get('api/admin/countries/filter', {params : {...data , page : page}}).then(res => {
+    axios.get('api/admin/countries', {params : {...data , page : page}}).then(res => {
       setCountries(res.data.data.data);
       setPaginationInfo(res.data.data);
       setLoadingState(false);
