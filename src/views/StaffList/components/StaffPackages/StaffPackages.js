@@ -82,7 +82,9 @@ const StaffPackages = props => {
     const [category, setCategory] = useState("");
     const [durations, setDurations] = useState([]);
     const [duration, setDuration] = useState([]);
-
+    const [image, setImage] = useState([]);
+    const [currIndex, setCurrIndex] = useState(0);
+    
     React.useEffect(() => {
         let cats = [];
         let durations = [];
@@ -105,6 +107,48 @@ const StaffPackages = props => {
         setCurrentStaffPackage(staff_pacakge);
         setDeleteDialogState(true);
     }
+    // const imageSelectedHandler = (e, index) => {
+    //     let avatar = e.target.files[0];
+    //     console.log(index)
+    //     if (!avatar) {
+    //         return;
+    //     }
+    //     let tmpImg = [...image];
+    //     tmpImg[index] = e.target.files[0].name
+    //     setImage([...tmpImg]);
+
+    //     var reader = new FileReader();
+    //     reader.onload = (e) => {
+    //         tmpImg[index] = e.target.result
+    //         setImage([...tmpImg]);
+    //         // setImage(e.target.result);
+    //     };
+    //     reader.readAsDataURL(e.target.files[0]);
+
+
+    //     setLoadingState(true);
+
+    //     let data = new FormData();
+    //     data.append('image', country.image);
+    
+    //     axios.post(`api/admin/package/updateImage/${countryId}`, data, {
+    //       headers: {
+    //         'accept': 'application/json',
+    //         'Content-Type': 'multipart/form-data'  // important in sending images
+    //       }
+    //     }).then(res => {
+    //       Toast(Lang.common.success,"success");
+    //       fetchCountries();
+    //     }).catch(err => {
+    //         Toast(Lang.common.connection_error,"danger");
+    //         if(err.response.status == 422){
+    //             Toast(Lang.common.input_error, "danger");
+    //         }else{
+    //             Toast(Lang.common.connection_error, "danger");
+    //         }
+    //     });
+
+    // };
 
     const onDeleteDialogClose = (can_delete) => {
         if (can_delete) {
@@ -233,73 +277,96 @@ const StaffPackages = props => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {filteredData().map(product => (
-                                    <TableRow
-                                        className={classes.tableRow}
-                                        hover
-                                        key={product.id}
-                                    >
-                                        <TableCell>
-                                            <div className={classes.nameContainer}>
-                                                <ListItem>
-                                                    <ListItemAvatar>
-                                                        <Avatar
-                                                            alt={product.package.name}
-                                                            src={product.package.image ? axios.defaults.baseURL + product.package.image : null}
-                                                        />
-                                                    </ListItemAvatar>
-                                                    <ListItemText primary={product.package.name} />
-                                                </ListItem>
-                                            </div>
-                                        </TableCell>
-                                        <TableCell>{product.package.countries && product.package.countries.length ? product.package.countries[0].name : "-"}</TableCell>
-                                        <TableCell>{product.duration}</TableCell>
-                                        <TableCell>{product.price}</TableCell>
-                                        <TableCell>{product.ir_price}</TableCell>
-                                        <TableCell>
-                                            {is_owner ? (
-                                                <Tooltip title={Lang.staffs.packages.list.info}>
-                                                    <IconButton
-                                                        color="primary"
-                                                        component={CustomRouterLink}
-                                                        to={window.dashboard_url + "/staffBooking/" + product.id}
-                                                    >
-                                                        <InfoIcon />
-                                                    </IconButton>
-                                                </Tooltip>
-                                            ) : (
-                                                <React.Fragment>
+                                {filteredData().map((product, index) => {
+                                    // console.log(index)
+                                    return (
+                                        <TableRow
+                                            className={classes.tableRow}
+                                            hover
+                                            key={product.id}
+                                        >
+                                            <TableCell>
+                                                <div className={classes.nameContainer}>
+                                                    <ListItem>
+                                                        <ListItemAvatar>
+                                                            <Avatar
+                                                                alt={product.package.name}
+                                                                src={product.package.image ? axios.defaults.baseURL + product.package.image : null}
+                                                            />
+                                                        </ListItemAvatar>
+                                                        <ListItemText primary={product.package.name} />
+                                                    </ListItem>
+                                                </div>
+                                            </TableCell>
+                                            <TableCell>{product.package.countries && product.package.countries.length ? product.package.countries[0].name : "-"}</TableCell>
+                                            <TableCell>{product.duration}</TableCell>
+                                            <TableCell>{product.price}</TableCell>
+                                            <TableCell>{product.ir_price}</TableCell>
+                                            <TableCell>
+                                                {is_owner ? (
                                                     <Tooltip title={Lang.staffs.packages.list.info}>
                                                         <IconButton
                                                             color="primary"
                                                             component={CustomRouterLink}
-                                                            to={window.dashboard_url + "/reports/staff/" + staff_id + "/staffBooking/"+product.id}
+                                                            to={window.dashboard_url + "/staffBooking/" + product.id}
                                                         >
                                                             <InfoIcon />
                                                         </IconButton>
                                                     </Tooltip>
-                                                    <Tooltip title={Lang.common.edit}>
-                                                        <IconButton
-                                                            color="primary"
-                                                            component={CustomRouterLink}
-                                                            to={window.dashboard_url + "/staffs/" + staff_id + "/package/" + product.id}
-                                                        >
-                                                            <EditIcon />
-                                                        </IconButton>
-                                                    </Tooltip>
-                                                    <Tooltip title={Lang.common.delete}>
-                                                        <IconButton
-                                                            color="secondary"
-                                                            onClick={() => setDeletePackage(product)}
-                                                        >
-                                                            <DeleteIcon />
-                                                        </IconButton>
-                                                    </Tooltip>
-                                                </React.Fragment>
-                                            )}
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
+                                                ) : (
+                                                    <React.Fragment>
+                                                        {/* <Tooltip title={'add banner'}> */}
+
+                                                            <label htmlFor="test-contained-button-file">
+                                                                <Avatar
+                                                                    className={classes.large}
+                                                                    src={image[index]}
+                                                                    onClick={()=>{
+                                                                        console.log(index)
+                                                                        setCurrIndex(index)
+                                                                    }}
+                                                                />
+                                                            </label>
+                                                            <input onChange={(e) => {
+                                                                console.log('setCurrIndex',product)
+                                                                // imageSelectedHandler(e, currIndex , product);
+                                                            }} style={{ display: 'none' }} accept="image/*" className={classes.input} id="test-contained-button-file" multiple type="file" />
+                                                        {/* </Tooltip> */}
+                                                        <Tooltip title={Lang.staffs.packages.list.info}>
+                                                            <IconButton
+                                                                color="primary"
+                                                                component={CustomRouterLink}
+                                                                to={window.dashboard_url + "/reports/staff/" + staff_id + "/staffBooking/" + product.id}
+                                                            >
+                                                                <InfoIcon />
+                                                            </IconButton>
+                                                        </Tooltip>
+
+                                                        <Tooltip title={Lang.common.edit}>
+                                                            <IconButton
+                                                                color="primary"
+                                                                component={CustomRouterLink}
+                                                                to={window.dashboard_url + "/staffs/" + staff_id + "/package/" + product.id}
+                                                            >
+                                                                <EditIcon />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                        <Tooltip title={Lang.common.delete}>
+                                                            <IconButton
+                                                                color="secondary"
+                                                                onClick={() => setDeletePackage(product)}
+                                                            >
+                                                                <DeleteIcon />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                    </React.Fragment>
+                                                )}
+                                            </TableCell>
+                                        </TableRow>
+                                    )
+                                }
+
+                                )}
                             </TableBody>
                         </Table>
                     </div>

@@ -51,6 +51,7 @@ const PackageList = () => {
   }
   // --------------------------- TODO Admin Packages Management ------------------------
 
+  
   const getPackages = callback => {
     axios.get('api/admin/packages').then(res => callback(res)).catch(err => {});
   };
@@ -165,6 +166,7 @@ const PackageList = () => {
 
   const closePacakgeDialog = (mpackage) => {
     if(mpackage){
+      console.log('mpackage',mpackage)
       if(currentPackage.id){
         packageUpdateInfo(currentPackage.slug , mpackage);
       }else{

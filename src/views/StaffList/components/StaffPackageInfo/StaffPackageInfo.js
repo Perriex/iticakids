@@ -10,10 +10,13 @@ import {
     InputLabel,
     Select,
     MenuItem,
+    Input,
+    Button,
+    Avatar,
 } from '@material-ui/core';
 import Lang from "../../../../Language";
 import Validator from "../../../../Validator";
-
+import axios from 'axios'
 const useStyles = makeStyles(theme => ({
     space: {
         padding: theme.spacing(1)
@@ -44,6 +47,7 @@ const StaffPackageInfo = props => {
     const { onDataChanged, currentPackage } = props;
 
     const [mpackage, setPackage] = useState({});
+    const [image, setImage] = React.useState(currentPackage ? (axios.defaults.baseURL + currentPackage.image) : "");
 
     const classes = useStyles();
 
@@ -56,7 +60,7 @@ const StaffPackageInfo = props => {
             // })
             setPackage({ ...currentPackage, type: [...types] });
         }
-        
+
     }, [currentPackage]);
 
     React.useEffect(() => {
@@ -65,14 +69,33 @@ const StaffPackageInfo = props => {
         }
     });
 
+    const imageSelectedHandler = e => {
+        let avatar = e.target.files[0];
+
+        if (!avatar) {
+            return;
+        }
+
+        setImage(e.target.files[0].name);
+        setPackage({ ...mpackage, image: avatar })
+
+    
+        // TODO this part can be deleted until end of this function. -------------------
+        // because the avatar should be loaded from props, not state!
+        var reader = new FileReader();
+        reader.onload = (e) => {
+            setImage(e.target.result);
+        };
+        // setImageName(e.target.files[0].name);
+        reader.readAsDataURL(e.target.files[0]);
+    };
+    console.log('mpackage', mpackage)
     const setData = (e) => {
         if (e) {
             setPackage({ ...mpackage, [e.target.name]: e.target.value });
             console.log('mpackage', { ...mpackage, [e.target.name]: e.target.value })
         }
-
     }
-
     return (
         <div>
             <Typography component="h5" variant="h5" className={classes.space}>
@@ -222,6 +245,33 @@ const StaffPackageInfo = props => {
                         onChange={setData}
                     />
                 </Grid>
+                <Grid
+                    item
+                    className={classes.grid}
+                    md={12}
+                    xs={12}
+                >
+                    <Avatar
+                        className={classes.large}
+                        src={image}
+                    />
+                    <input onChange={(e) => {
+                        imageSelectedHandler(e);
+                    }} style={{ display: 'none' }} accept="image/*" className={classes.input} id="test-contained-button-file" multiple type="file" />
+                    <label htmlFor="test-contained-button-file">
+                        <Button
+                            className={classes.upload}
+                            component="span"
+                            color={"primary"}
+                            variant="text"
+                        >
+                            {Lang.common.upload_pic}*
+                        </Button>
+                    </label>
+
+                </Grid>
+
+                
                 <Grid
                     item
                     className={classes.grid}

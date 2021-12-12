@@ -75,8 +75,10 @@ const EditStaffPackage = props => {
         let p = {...res.data.data};
         try {
           p.seo = JSON.parse(p.json).seo;
+          p.image = JSON.parse(p.json).image;
         } catch (error) {
           p.seo = "";
+          p.image = "";
         }
         setPackage(p);
       })
