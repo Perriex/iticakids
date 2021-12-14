@@ -57,7 +57,7 @@ const CategoriesPage = props => {
 
     React.useEffect(() => {
         if (allTags) {
-            tagInterval = setInterval(changeTag, 5000);
+            tagInterval = setInterval(changeTag, 10000);
         }
         console.log('started')
         return () => clearInterval(tagInterval)

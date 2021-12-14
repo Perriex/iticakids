@@ -6,6 +6,7 @@ import ClassReserveCard from "../../components/ClassReserveCard/ClassReserveCard
 import {withRouter} from 'react-router-dom';
 
 const PackageReserveCards = props => {
+
     return (
         <div className={classes.wrapper}>
             {
@@ -13,8 +14,8 @@ const PackageReserveCards = props => {
                     <ClassReserveCard
                         onButtonClick={() => {
                             props.history.push({
-                                pathname: `${props.baseURL}/${item.slug}`,
-                                state: {staffPackageId: item.id}
+                                pathname: `/masters/${props.baseURL}/${item.slug}`,
+                                state: { staffPackageId: item.id }
                             });
                         }}
                         key={JSON.stringify(item) + Math.random()}

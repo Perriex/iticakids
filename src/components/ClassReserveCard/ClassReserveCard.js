@@ -10,7 +10,7 @@ const ClassReserveCard = props => (
         <div className={classes.photo} style={{backgroundImage: `url(${props.photo})`}} />
         <div className={classes.title}>{props.title}</div>
         <div className={classes.time}>{strings['Duration']}:&nbsp;{props.time}</div>
-        <div className={classes.price}>{strings['Price']}:&nbsp;${props.price}</div>
+        <div className={classes.price}>{strings['Price']}:&nbsp;{props.price}</div>
         <Button style={{borderRadius: 10, marginTop: 7}}>{props.buttonText}</Button>
     </div>
 );

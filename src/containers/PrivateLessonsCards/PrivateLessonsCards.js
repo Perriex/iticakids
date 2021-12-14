@@ -7,6 +7,7 @@ import EmptySpace from "../../components/EmptySpace/EmptySpace";
 import axios from 'axios';
 import PrivateLessonCard from '../../components/PrivateLessonCard/PrivateLessonCard';
 import { Link } from '@material-ui/core';
+import PrivateLessonsCardsChild from './PrivateLessonsCardsChild';
 const PrivateLessonsCards = props => {
     const handleClick = (id) => props.history.push(`${props.baseUrl}/${id}`);
     const backendBaseURL = axios.defaults.baseURL;
@@ -14,34 +15,41 @@ const PrivateLessonsCards = props => {
     for (let i = 0; i < 50; i++) {
         Empties.push(i);
     }
-    
+
     return (
         <div className={classes.wrapper}>
             {
                 props.items?.packages && props.items?.packages.map(item => {
-                    if (item.staff_packages.length > 0
-                    ) {
+                    if (item.staff_packages.length > 0) {
                         return (
-                            <PrivateLessonCard
+                            <PrivateLessonsCardsChild
                                 responsive={props.responsive}
-                                key={JSON.stringify(item) + Math.random()}
-                                title={item.name}
-                                img={backendBaseURL + item.image}
-                                by={item?.staff_packages[0]?.staff_user.user.name+' '+item?.staff_packages[0]?.staff_user.user?.family}
-                                language={JSON.parse(item.json).language}
-                                age={JSON.parse(item.json).age}
-                                sessions={item.sessions}
-                                price={"$"+item?.staff_packages[0]?.price + '/' + item?.staff_packages[0]?.duration + ' min'}
-                                buttonText={item.buttonText}
-                                style={{cursor: 'pointer'}}
-                                onClick={() => {
-                                    props.history.push({
-                                        pathname: `/masters/${item.staff_packages[0].staff_user.slug}/reservePackage/${item.slug}`,
-                                        state: {staffPackageId: item.staff_packages[0]?.id}
-                                    });
-                                }}
-                            />
-                        )
+                                item={item}
+                                history={props.history}
+                            />)
+                        // item.staff_packages.map((pack)=>{
+                        //     console.log('pack',pack)
+                        // return (
+                        // <PrivateLessonCard
+                        //     responsive={props.responsive}
+                        //     key={JSON.stringify(item) + Math.random()}
+                        //     title={item.name}
+                        //     img={backendBaseURL + item.image}
+                        //     by={pack?.staff_user.user.name+' '+pack?.staff_user.user?.family}
+                        //     language={JSON.parse(item.json).language}
+                        //     age={JSON.parse(item.json).age}
+                        //     sessions={item.sessions}
+                        //     price={"$"+pack?.price + '/' + pack?.duration + ' min'}
+                        //     buttonText={item.buttonText}
+                        //     style={{cursor: 'pointer'}}
+                        //     onClick={() => {
+                        //         props.history.push({
+                        //             pathname: `/masters/${item.staff_packages[0].staff_user.slug}/reservePackage/${item.slug}`,
+                        //             state: {staffPackageId: item.staff_packages[0]?.id}
+                        //         });
+                        //     }}
+                        // />
+                        // )})
                     }
                 })
             }

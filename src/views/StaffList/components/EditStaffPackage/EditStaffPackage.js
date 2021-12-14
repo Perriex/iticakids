@@ -51,7 +51,7 @@ const EditStaffPackage = props => {
     
   const classes = useStyles();
 
-  const [currentPackage , setPackage] = useState({});//Get Staff Package usign api!
+  const [currentPackage , setPackage] = useState();//Get Staff Package usign api!
   const [newPackage , setNewPackage] = useState({});//Get Staff Package usign api!
   const [package_id , setPackageID] = useState(props.match.params.package_id);//Get Staff Package usign api!
   const [showLoading , setLoadingState] = useState(true);//Get Staff Package usign api!

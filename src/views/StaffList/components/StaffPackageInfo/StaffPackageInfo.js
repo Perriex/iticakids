@@ -55,9 +55,11 @@ const StaffPackageInfo = props => {
         if (currentPackage) {
             console.log('current???', currentPackage)
             let types = [];
-            // currentPackage?.types?.map((type) => {
-            //     types.push(type.type)
-            // })
+            if (currentPackage?.types.length > 0) {
+                currentPackage.types.map((type) => {
+                    types.push(type.type)
+                })
+            }
             setPackage({ ...currentPackage, type: [...types] });
         }
 
@@ -79,7 +81,7 @@ const StaffPackageInfo = props => {
         setImage(e.target.files[0].name);
         setPackage({ ...mpackage, image: avatar })
 
-    
+
         // TODO this part can be deleted until end of this function. -------------------
         // because the avatar should be loaded from props, not state!
         var reader = new FileReader();
@@ -271,7 +273,7 @@ const StaffPackageInfo = props => {
 
                 </Grid>
 
-                
+
                 <Grid
                     item
                     className={classes.grid}

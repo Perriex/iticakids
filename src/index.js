@@ -13,6 +13,12 @@ import config from './website.config';
 // import './assets/fonts/IRANYekanRegular.ttf';
 import './assets/fonts/Shabnam.ttf';
 
+//hide console logs
+console.log('rhythmitica <3 you!')
+console.log = function () {};
+console.warn = function () {};
+console.error = function () {};
+
 const reduxStore = createStore(reducer);
 
 axios.defaults.baseURL = config.baseUrl;
