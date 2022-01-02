@@ -262,8 +262,8 @@ const WorkshopPage = props => {
                             <Loading isLoading={loading} height={200} width={200} />
                             <h2 className={classes.title}>{displayData?.title}</h2>
                             <PropVal prop={'by'} val={displayData?.by} />
-                            <PropVal prop={'time'} val={displayData?.time} />
-                            <PropVal prop={'date'} val={displayData?.date} />
+                            {/* <PropVal prop={'time'} val={displayData?.time} />
+                            <PropVal prop={'date'} val={displayData?.date} /> */}
                             <PropVal prop={'level'} val={displayData?.level} />
                             <br />
                             <div dangerouslySetInnerHTML={{ __html: displayData?.body }} />
